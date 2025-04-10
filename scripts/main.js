@@ -1,40 +1,47 @@
-// scripts/main.js
+// main.js
 
 // Hero Typing Effect
-const heroText = "Quantum-Powered AI. Unbreakable Security.";
-const heroHeading = document.querySelector("h2");
-let index = 0;
-
-function typeText() {
-  if (index < heroText.length) {
-    heroHeading.innerHTML = heroText.substring(0, index + 1) + "<span class='cursor'>|</span>";
-    index++;
-    setTimeout(typeText, 75);
-  } else {
-    document.querySelector(".cursor").style.display = "none";
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  typeText();
+  const heroText = "Quantum-Powered AI. Unbreakable Security.";
+  const heroHeading = document.querySelector("h2");
+  let index = 0;
 
-  // Boot Screen Typewriter
-  const accessText = "INITIALIZING ACCESS TERMINAL...";
-  const typeEl = document.getElementById("typewriterText");
-  let i = 0;
-
-  function bootType() {
-    if (i <= accessText.length) {
-      typeEl.textContent = accessText.slice(0, i);
-      i++;
-      setTimeout(bootType, 70);
+  function typeText() {
+    if (index < heroText.length) {
+      heroHeading.innerHTML = heroText.substring(0, index + 1) + "<span class='cursor'>|</span>";
+      index++;
+      setTimeout(typeText, 75);
+    } else {
+      const cursor = document.querySelector(".cursor");
+      if (cursor) cursor.style.display = "none";
     }
   }
 
-  bootType();
+  typeText();
+
+  // Boot screen typewriter
+  const accessText = "INITIALIZING ACCESS TERMINAL...";
+  const typeEl = document.getElementById("typewriterText");
+  if (typeEl) {
+    let i = 0;
+    function bootType() {
+      if (i <= accessText.length) {
+        typeEl.textContent = accessText.slice(0, i);
+        i++;
+        setTimeout(bootType, 70);
+      }
+    }
+    bootType();
+  }
 });
 
-// Console Easter Eggs
+// This must be global for the button onclick to work
+function enterSite() {
+  document.getElementById("bootScreen").style.display = "none";
+  document.getElementById("mainSite").style.display = "block";
+}
+
+// 🔒 Console logs just for swag
 const logs = [
   "[QRYPTIX] Initializing quantum firewall...",
   "[QRYPTIX] AI Core activated.",
@@ -48,9 +55,3 @@ logs.forEach((log, i) => {
     console.log(`%c${log}`, "color: #0ff; font-weight: bold; font-family: monospace;");
   }, i * 800);
 });
-
-// Unlock Site from Boot Screen
-function enterSite() {
-  document.getElementById("bootScreen").style.display = "none";
-  document.getElementById("mainSite").style.display = "block";
-}
