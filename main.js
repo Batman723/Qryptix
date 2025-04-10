@@ -1,6 +1,4 @@
-// scripts/main.js
-
-// 🧠 Typing effect for Hero Section
+// Typing effect for Hero Section
 const heroText = "Quantum-Powered AI. Unbreakable Security.";
 const heroHeading = document.querySelector("h2");
 let index = 0;
@@ -11,13 +9,14 @@ function typeText() {
     index++;
     setTimeout(typeText, 75);
   } else {
-    document.querySelector(".cursor").style.display = "none";
+    const cursor = document.querySelector(".cursor");
+    if (cursor) cursor.style.display = "none";
   }
 }
 
 document.addEventListener("DOMContentLoaded", typeText);
 
-// 💻 Simulate "hacking console logs" in dev tools
+// Console easter eggs just for swag
 const logs = [
   "[QRYPTIX] Initializing quantum firewall...",
   "[QRYPTIX] AI Core activated.",

@@ -1,0 +1,27 @@
+/* style.css */
+
+.smooth-glow {
+  text-shadow: 0 0 8px #0ff, 0 0 12px #0ff;
+  animation: glowFade 3s ease-in-out infinite;
+}
+
+@keyframes glowFade {
+  0%, 100% {
+    text-shadow: 0 0 8px #0ff, 0 0 12px #0ff;
+  }
+  50% {
+    text-shadow: 0 0 20px #0ff, 0 0 35px #0ff;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background-color: #0ff;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
