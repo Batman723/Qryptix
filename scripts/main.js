@@ -1,6 +1,6 @@
 // scripts/main.js
 
-// 🧠 Typing effect for Hero Section
+// Hero Typing Effect
 const heroText = "Quantum-Powered AI. Unbreakable Security.";
 const heroHeading = document.querySelector("h2");
 let index = 0;
@@ -15,9 +15,26 @@ function typeText() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", typeText);
+document.addEventListener("DOMContentLoaded", () => {
+  typeText();
 
-// 💻 Simulate "hacking console logs" in dev tools
+  // Boot Screen Typewriter
+  const accessText = "INITIALIZING ACCESS TERMINAL...";
+  const typeEl = document.getElementById("typewriterText");
+  let i = 0;
+
+  function bootType() {
+    if (i <= accessText.length) {
+      typeEl.textContent = accessText.slice(0, i);
+      i++;
+      setTimeout(bootType, 70);
+    }
+  }
+
+  bootType();
+});
+
+// Console Easter Eggs
 const logs = [
   "[QRYPTIX] Initializing quantum firewall...",
   "[QRYPTIX] AI Core activated.",
@@ -31,23 +48,8 @@ logs.forEach((log, i) => {
     console.log(`%c${log}`, "color: #0ff; font-weight: bold; font-family: monospace;");
   }, i * 800);
 });
-// 🔓 Access Screen Typing + Transition
-document.addEventListener("DOMContentLoaded", () => {
-  const accessText = "INITIALIZING ACCESS TERMINAL...";
-  const typeEl = document.getElementById("typewriterText");
-  let i = 0;
 
-  function type() {
-    if (i <= accessText.length) {
-      typeEl.textContent = accessText.slice(0, i);
-      i++;
-      setTimeout(type, 75);
-    }
-  }
-
-  type();
-});
-
+// Unlock Site from Boot Screen
 function enterSite() {
   document.getElementById("bootScreen").style.display = "none";
   document.getElementById("mainSite").style.display = "block";
