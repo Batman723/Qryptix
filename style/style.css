@@ -30,3 +30,17 @@
 #typewriterText {
   animation: typing 3s steps(28), blinkBorder 0.8s step-end infinite;
 }
+/* Boot Screen Animation Fixes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30ch }
+}
+
+@keyframes blinkBorder {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #0ff; }
+}
+
+#typewriterText {
+  animation: typing 3s steps(30), blinkBorder 0.8s step-end infinite;
+}
