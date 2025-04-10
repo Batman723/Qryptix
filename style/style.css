@@ -14,4 +14,17 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
-    
+    /* Boot Screen Typing Animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 22ch }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #0ff; }
+}
+
+#typewriterText {
+  animation: typing 3s steps(22), blink 0.8s step-end infinite;
+}

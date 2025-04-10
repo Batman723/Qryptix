@@ -31,3 +31,24 @@ logs.forEach((log, i) => {
     console.log(`%c${log}`, "color: #0ff; font-weight: bold; font-family: monospace;");
   }, i * 800);
 });
+// 🔓 Access Screen Typing + Transition
+document.addEventListener("DOMContentLoaded", () => {
+  const accessText = "INITIALIZING ACCESS TERMINAL...";
+  const typeEl = document.getElementById("typewriterText");
+  let i = 0;
+
+  function type() {
+    if (i <= accessText.length) {
+      typeEl.textContent = accessText.slice(0, i);
+      i++;
+      setTimeout(type, 75);
+    }
+  }
+
+  type();
+});
+
+function enterSite() {
+  document.getElementById("bootScreen").style.display = "none";
+  document.getElementById("mainSite").style.display = "block";
+}
